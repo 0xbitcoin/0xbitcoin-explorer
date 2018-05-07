@@ -1,24 +1,8 @@
-# README
+### 0xBitcoin Explorer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A block explorer website that shows all transactions and accounts related to 0xbitcoin.  
 
-Things you may want to cover:
 
-* Ruby version
+#### How it works 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A geth --light node will run on the server.  Rails 5.2 in --api only mode will manage the backend database + api for the static frontend.   This database is Postgresql + redis.  
