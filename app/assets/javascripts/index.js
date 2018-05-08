@@ -20,7 +20,7 @@ import Navbar from './navbar'
 
 import EthHelper from './ethhelper'
 
-import LavaWalletHelper from './lava-wallet-helper'
+import SearchHelper from './search-helper'
 
 import HomeDashboard from './home-dashboard'
 
@@ -31,13 +31,8 @@ var alertRenderer = new AlertRenderer();
 var ethHelper = new EthHelper();
 var navbar = new Navbar();
 
-var lavaWalletHelper = new LavaWalletHelper();
+var searchHelper = new SearchHelper();
 
-
-
-import WalletDashboard from './wallet-dashboard'
-
-var wallet = new WalletDashboard();
 
 
 var pjson = require('../../../package.json');
@@ -69,6 +64,8 @@ $(document).ready(function(){
   //  wallet.init(alertRenderer,ethHelper);
 
     navbar.init();
+
+    searchHelper.init();
 
 
 

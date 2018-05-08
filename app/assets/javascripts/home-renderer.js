@@ -13,10 +13,6 @@ var jumbotron;
 import jumboLogo from '../img/0xbitcoin-logo-white.png'
 
 
-
-import DashboardRenderer from './dashboard-renderer'
-
-
 export default class HomeRenderer {
 
     init( ethHelper, web3 )
@@ -69,29 +65,16 @@ export default class HomeRenderer {
 
 
 
-      console.log('init home')
-
     }
 
      update( renderData )
     {
 
-
       dashboardData = renderData;
 
 
-
-
     }
 
-    hide()
-    {
 
-    }
-
-    show()
-    {
-
-    }
 
 }

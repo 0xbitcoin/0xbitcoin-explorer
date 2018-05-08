@@ -38,14 +38,15 @@ const routesData = {
   routes: [
     {url: '/', title: '0xBTC Explorer', template: 'app/views/index.html', filename: 'index.html'},
     {url: '/account', title: '0xBTC Explorer', template: 'app/views/account.html', filename: 'account.html'},
-    {url: '/tx', title: '0xBTC Explorer', template: 'app/views/transaction.html', filename: 'transaction.html'}
+    {url: '/tx', title: '0xBTC Explorer', template: 'app/views/transaction.html', filename: 'transaction.html'},
+    {url: '/search', title: '0xBTC Explorer', template: 'app/views/search.html', filename: 'search.html'}
    ]
 }
 
 
 routesData.routes.forEach(function(element){
 
-  var htmlPlugin = new HtmlWebpackPlugin({
+  var htmlPlugin = new HtmlWebpackPlugin({ 
         title: element.title,
         filename: element.filename,
         template: element.template

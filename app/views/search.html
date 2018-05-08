@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <%= require('html-loader!./templates/head.html') %>
+
+
+  </head>
+
+
+  <%= require('html-loader!./templates/navbar.html') %>
+
+
+
+<div class="page-container" id="home">
+
+
+      <div   class="title">
+        Search Results
+      </div>
+
+      <section class="hero   ">
+        <div class="hero-body">
+
+
+
+        <div class="whitespace-md"></div>
+
+
+          <div id="search-results" class="search-results">
+
+            <table>
+              <thead>
+                <tr >
+                  <td class="has-text-centered"> Icon </td>
+                  <td class="has-text-centered"> Name </td>
+                  <td class="has-text-centered"> Lava Balance </td>
+                  <td class="has-text-centered"> External Balance </td>
+
+                </tr>
+              </thead>
+              <tbody>
+              <tr    v-for="(item, index) in tokens.token_list" v-bind:data-tokenaddress="item.address" v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+                <td class="row-cell has-text-centered icon-url"><img  v-bind:src="item.icon_url" height="42" width="42" ></img></td>
+                <td class="row-cell has-text-centered token-name">{{item.name}}</td>
+                <td class="row-cell has-text-centered"><div class=" token-balance">{{item.lava_balance_formatted}}</div> </td>
+                <td class="row-cell has-text-centered"><div class="has-text-centered token-balance">{{item.wallet_balance_formatted}}</div>  </td>
+
+              </tr>
+            </tbody>
+            </table>
+
+           </div>
+
+
+                 <div class="whitespace-md"></div>
+
+
+        </div>
+      </section>
+
+
+
+
+  </div>
+
+
+
+      <%= require('html-loader!./templates/footer.html') %>
+ 
+  </body>
+</html>
