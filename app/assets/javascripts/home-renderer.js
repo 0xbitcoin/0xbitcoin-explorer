@@ -1,9 +1,7 @@
 
 const $ = require('jquery');
 import Vue from 'vue';
-
-import Typed from 'typed.js';
-import Slick from 'slick-carousel';
+ 
 
 //require('owl.carousel')
 

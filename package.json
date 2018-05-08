@@ -17,7 +17,7 @@
   "author": "0xbitcoin",
   "license": "MIT",
   "dependencies": {
-  "babel-core": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
@@ -26,13 +26,17 @@
     "babel-preset-es2016": "^6.24.1",
     "browserify": "^15.2.0",
     "bulma": "^0.6.2",
-   "extract-text-webpack-plugin": "^3.0.2",
+    "eth-sig-util": "^1.4.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "html-loader": "^0.5.5",
-     "vue": "^2.5.13",
-    "webpack": "^3.10.0" 
+    "jquery": "^3.3.1",
+    "vue": "^2.5.13",
+    "web3": "^1.0.0-beta.34",
+    "web3-utils": "^1.0.0-beta.34",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
-   "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.9",
     "file-loader": "^1.1.6",
     "html-webpack-include-assets-plugin": "^1.0.2",
