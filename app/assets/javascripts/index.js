@@ -18,6 +18,7 @@ import Vue from 'vue'
 
 import AlertRenderer from './alert-renderer'
 import HomeRenderer from './home-renderer'
+import SearchRenderer from './search-renderer'
 
 import Navbar from './navbar'
 
@@ -25,10 +26,9 @@ import EthHelper from './ethhelper'
 
 import SearchHelper from './search-helper'
 
-import HomeDashboard from './home-dashboard'
-
 
 var homeRenderer= new HomeRenderer()
+var searchRenderer= new SearchRenderer()
 
 var alertRenderer = new AlertRenderer();
 var ethHelper = new EthHelper();
@@ -61,10 +61,20 @@ $(document).ready(function(){
 
     var web3 = ethHelper.init( alertRenderer);
 
-      homeRenderer.init(ethHelper, web3);
 
-      console.log('load free shift')
-  //  wallet.init(alertRenderer,ethHelper);
+    if($('#home').length > 0)
+    {
+      homeRenderer.init(ethHelper, web3);
+    }
+
+    if($('#search').length > 0)
+    {
+      searchRenderer.init(ethHelper, web3);
+    }
+
+
+
+
 
     navbar.init();
 
