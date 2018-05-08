@@ -20,20 +20,11 @@ export default class EthHelper {
     }
 
     connectWeb3(web3){
-      if (typeof web3 !== 'undefined') {
 
             window.web3 = new Web3(new Web3.providers.HttpProvider(INFURA_MAINNET_URL));
             console.log('connected to web3!')
             return window.web3;
 
-      } else {
-
-            this.alertRenderer.renderError('No web3? You should consider trying MetaMask!')
-            return {}
-          // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-          //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
-      }
     }
 
 
