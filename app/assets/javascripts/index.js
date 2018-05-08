@@ -19,6 +19,7 @@ import Vue from 'vue'
 import AlertRenderer from './alert-renderer'
 import HomeRenderer from './home-renderer'
 import SearchRenderer from './search-renderer'
+import AccountRenderer from './account-renderer'
 
 import Navbar from './navbar'
 
@@ -27,8 +28,10 @@ import EthHelper from './ethhelper'
 import SearchHelper from './search-helper'
 
 
+
 var homeRenderer= new HomeRenderer()
 var searchRenderer= new SearchRenderer()
+var accountRenderer= new AccountRenderer()
 
 var alertRenderer = new AlertRenderer();
 var ethHelper = new EthHelper();
@@ -72,7 +75,10 @@ $(document).ready(function(){
       searchRenderer.init(ethHelper, web3);
     }
 
-
+    if($('#account').length > 0)
+    {
+      accountRenderer.init(ethHelper, web3);
+    }
 
 
 

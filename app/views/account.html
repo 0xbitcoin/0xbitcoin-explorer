@@ -23,32 +23,20 @@
         <section class="hero   ">
           <div class="hero-body">
 
-            <div   class="title">
-              Account {{ address }}
-            </div>
+
 
           <div class="whitespace-md"></div>
 
 
-            <div id="search-results" class="search-results">
+            <div id="account-data" class="account-data">
+              <div   class="title">
+                Account {{ address }}
+              </div>
 
-              <table>
-                <thead>
-                  <tr >
-                    <td class="has-text-centered"> Type </td>
-                    <td class="has-text-centered"> Address </td>
 
-                  </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(item, index) in results"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+              {{ tokenBalance }}
 
-                    <td class="row-cell has-text-centered  "> {{item.type}} </td>
-                   <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.address}} </a> </td>
-
-                </tr>
-              </tbody>
-            </table>
+              {{ etherBalance }}
 
              </div>
 
