@@ -36,7 +36,9 @@ var webpackPlugins = [
 
 const routesData = {
   routes: [
-    {url: '/', title: '0xBTC Explorer', template: 'app/views/index.html', filename: 'index.html'}
+    {url: '/', title: '0xBTC Explorer', template: 'app/views/index.html', filename: 'index.html'},
+    {url: '/account', title: '0xBTC Explorer', template: 'app/views/account.html', filename: 'account.html'},
+    {url: '/tx', title: '0xBTC Explorer', template: 'app/views/transaction.html', filename: 'transaction.html'}
    ]
 }
 
