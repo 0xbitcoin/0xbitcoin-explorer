@@ -83,6 +83,80 @@ export default class EthHelper {
 
     }
 
+
+
+
+    async getSearchResults(web3,query,callback)
+    {
+
+      var self = this ;
+
+      var results = [];
+
+      console.log('getting search results');
+
+
+      var accountData = await self.getAccountData(web3,query)
+
+      console.log('accountData',accountData)
+
+      var tx = await new Promise(function (fulfilled,error) {
+        web3.eth.getTransaction(query,function(err,result){
+          fulfilled(result)
+        });
+      });
+
+      console.log('tx',tx)
+
+
+      if(accountData!=null)
+      {
+        results.push( {type:'account', address: accountData.address, url: accountData.address, data: accountData}  )
+      }
+
+      if(tx!=null)
+      {
+        results.push( {type:'tx', url: tx.address, data: tx}  )
+      }
+
+      callback(results)
+    }
+
+
+    async getAccountData(web3,address)
+    {
+
+      var tokenContract = this.getWeb3ContractInstance(
+        web3,
+        this.getContractAddress(),
+        this.getContractABI()
+      )
+
+      var tokenBalance = await new Promise(function (fulfilled,error) {
+         tokenContract.balanceOf.call(address,function(err,result){
+          fulfilled(result)
+        });
+      });
+
+      var etherBalance = await new Promise(function (fulfilled,error) {
+        web3.eth.getBalance(address,function(err,result){
+          fulfilled(result)
+        });
+      });
+
+
+      return {
+        address: address,
+        tokenBalance: tokenBalance.toNumber(),
+        etherBalance: etherBalance.toNumber()
+      }
+
+
+
+
+    }
+
+
     estimateHashrateFromDifficulty(difficulty){
 
 

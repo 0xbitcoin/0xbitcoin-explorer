@@ -5,9 +5,8 @@ import Vue from 'vue';
 
 //require('owl.carousel')
 
-var dashboardData;
-var app;
-var jumbotron;
+var resultsList;
+var resultsContainer;
 
 
 import jumboLogo from '../img/0xbitcoin-logo-white.png'
@@ -21,7 +20,7 @@ export default class SearchRenderer {
       var self = this ;
 
 
-     
+
       var url = new URL( window.location.href  );
       var searchQuery = url.searchParams.get("query");
       console.log('searchQuery',searchQuery);
@@ -29,42 +28,20 @@ export default class SearchRenderer {
 
 
 
-     setInterval( function(){
 
+        ethHelper.getSearchResults( web3 , searchQuery , function(results){
 
-         ethHelper.connectToContract( web3 , function(renderData){
+          resultsList = results;
+          console.log('resultsList',resultsList)
 
-           self.update(renderData);
-
-         } );
-
-      },30 * 1000);
-
-
-
-
-        ethHelper.connectToContract( web3 , function(renderData){
-
-
-           jumbotron = new Vue({
-            el: '#jumbotron',
+          resultsContainer = new Vue({
+            el: '#search-results',
             data: {
-              jumboLogo: jumboLogo,
-              errorMessage: ''
-
+              results: resultsList
             }
-          })
-
-
-          dashboardData = renderData;
-
-             app = new Vue({
-            el: '#dashboard',
-            data: dashboardData
           });
 
 
-          self.update(renderData);
 
         } );
 
@@ -77,8 +54,6 @@ export default class SearchRenderer {
 
      update( renderData )
     {
-
-      dashboardData = renderData;
 
 
     }

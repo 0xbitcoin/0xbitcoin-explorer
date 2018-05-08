@@ -34,23 +34,21 @@
             <table>
               <thead>
                 <tr >
-                  <td class="has-text-centered"> Icon </td>
-                  <td class="has-text-centered"> Name </td>
-                  <td class="has-text-centered"> Lava Balance </td>
-                  <td class="has-text-centered"> External Balance </td>
+                  <td class="has-text-centered"> Type </td>
+                  <td class="has-text-centered"> Address </td>
 
                 </tr>
               </thead>
               <tbody>
-              <tr    v-for="(item, index) in tokens.token_list" v-bind:data-tokenaddress="item.address" v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
-                <td class="row-cell has-text-centered icon-url"><img  v-bind:src="item.icon_url" height="42" width="42" ></img></td>
-                <td class="row-cell has-text-centered token-name">{{item.name}}</td>
-                <td class="row-cell has-text-centered"><div class=" token-balance">{{item.lava_balance_formatted}}</div> </td>
-                <td class="row-cell has-text-centered"><div class="has-text-centered token-balance">{{item.wallet_balance_formatted}}</div>  </td>
+              <tr v-for="(item, index) in results.resultsList"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                <td class="row-cell has-text-centered  "> {{index}} </td>
+                 <td class="row-cell has-text-centered  "> {{item.type}} </td>
+                 <td class="row-cell has-text-centered "> {{item.address}} </td>
 
               </tr>
             </tbody>
-            </table>
+          </table>
 
            </div>
 
