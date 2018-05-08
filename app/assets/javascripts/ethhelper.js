@@ -111,7 +111,7 @@ export default class EthHelper {
 
       if(accountData!=null)
       {
-        results.push( {type:'account', address: accountData.address, url: accountData.address, data: accountData}  )
+        results.push( {type:'account', address: accountData.address, url: "/account.html?address=" + accountData.address, data: accountData}  )
       }
 
       if(tx!=null)

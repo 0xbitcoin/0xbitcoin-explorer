@@ -17,14 +17,14 @@
 <div class="page-container" id="search">
 
 
-      <div   class="title">
-        Search Results
-      </div>
+
 
       <section class="hero   ">
         <div class="hero-body">
 
-
+          <div   class="title">
+            Search Results
+          </div>
 
         <div class="whitespace-md"></div>
 
@@ -42,9 +42,8 @@
               <tbody>
               <tr v-for="(item, index) in results"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
 
-                <td class="row-cell has-text-centered  "> {{index}} </td>
-                 <td class="row-cell has-text-centered  "> {{item.type}} </td>
-                 <td class="row-cell has-text-centered "> {{item.address}} </td>
+                  <td class="row-cell has-text-centered  "> {{item.type}} </td>
+                 <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.address}} </a> </td>
 
               </tr>
             </tbody>
