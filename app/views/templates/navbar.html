@@ -5,9 +5,8 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
 
-      <img :src="titleLogo" height=40px width=40px  ></img>
-
-
+         0xBitcoin Explorer
+       
     </a>
 
   </div>
@@ -29,9 +28,7 @@
   <div  class="navbar-menu">
     <div class="navbar-start">
 
-      <div class="navbar-item">
-        {{ projectVersion }} Beta - ROPSTEN
-      </div>
+
 
       <div class="navbar-item has-dropdown is-active">
         <div class="navbar-link  is-active acts-as-link dropdown-button"  >
@@ -94,17 +91,10 @@
 
       <div class="navbar-end" style="padding:5px;">
 
-        <div class="navbar-item">
-           <a href="https://reddit.com/r/0xbitcoin" target="_blank">
-             <img :src="redditLogo" height="28" width="28" target="_blank"/>
-           </a>
-         </div>
-
-       <div class="navbar-item">
-          <a href="https://github.com/0xbitcoin/0xbitcoin-token" target="_blank">
-            <img :src="githubLogo" height="28" width="28" target="_blank"/>
-          </a>
-        </div>
+       <div class="nav-search-container field is-horizontal">
+         <input class="input nav-search search" type="text" placeholder="Search...">
+         <a class="button search-go">Go</a>
+       </div>
 
       </div>
 

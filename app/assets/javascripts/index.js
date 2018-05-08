@@ -1,12 +1,10 @@
 
 const $ = require('jquery');
 
-import titleLogo from '../img/lavalogo3.png'
+import jumboLogo from '../img/0xbitcoin-logo-white.png'
 import githubLogo from '../img/GitHub-Mark-64px.png'
 import redditLogo from '../img/reddit-mark-64px.png'
 import contractQR from '../img/0xbitcoinContractQR.png'
-
-import whiteLogo from '../img/logo.png'
 
 
 
@@ -50,7 +48,7 @@ var pjson = require('../../../package.json');
 var navbarComponent = new Vue({
   el: '#navbar',
   data: {
-    titleLogo: titleLogo,
+    jumboLogo: jumboLogo,
     githubLogo: githubLogo,
     redditLogo: redditLogo,
     contractQR: contractQR,
@@ -63,16 +61,15 @@ $(document).ready(function(){
 
 
 
-    //  var web3 = ethHelper.init( alertRenderer);
+    var web3 = ethHelper.init( alertRenderer);
 
-      //homeRenderer.init(ethHelper);
+      homeRenderer.init(ethHelper, web3);
 
       console.log('load free shift')
   //  wallet.init(alertRenderer,ethHelper);
 
     navbar.init();
 
-   lavaWalletHelper.init(alertRenderer,ethHelper);
 
 
 });

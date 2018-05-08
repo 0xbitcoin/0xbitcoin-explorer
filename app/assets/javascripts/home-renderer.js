@@ -1,29 +1,36 @@
 
 const $ = require('jquery');
 import Vue from 'vue';
- 
+
 
 //require('owl.carousel')
 
-import DashboardRenderer from './dashboard-renderer'
+var dashboardData;
+var app;
+var jumbotron;
 
-var dashboardRenderer = new DashboardRenderer();
+
+import jumboLogo from '../img/0xbitcoin-logo-white.png'
+
+
+
+import DashboardRenderer from './dashboard-renderer'
 
 
 export default class HomeRenderer {
 
-    init( ethHelper )
+    init( ethHelper, web3 )
     {
 
-
+      var self = this ;
 
 
      setInterval( function(){
 
 
-         ethHelper.connectToContract( web3 , dashboardRenderer, function(contractData){
+         ethHelper.connectToContract( web3 , function(renderData){
 
-           dashboardRenderer.update(contractData);
+           self.update(renderData);
 
          } );
 
@@ -32,9 +39,28 @@ export default class HomeRenderer {
 
 
 
-        ethHelper.connectToContract( web3 , dashboardRenderer, function(contractData){
+        ethHelper.connectToContract( web3 , function(renderData){
 
-          dashboardRenderer.init(contractData);
+
+           jumbotron = new Vue({
+            el: '#jumbotron',
+            data: {
+              jumboLogo: jumboLogo,
+              errorMessage: ''
+
+            }
+          })
+
+
+          dashboardData = renderData;
+
+             app = new Vue({
+            el: '#dashboard',
+            data: dashboardData
+          });
+
+
+          self.update(renderData);
 
         } );
 
@@ -43,124 +69,18 @@ export default class HomeRenderer {
 
 
 
-
-
-  /*
-      $('.testimonial-carousel').slick({
-        dots: true,
-        speed: 500
-      });
-
-
-
-
-      $('.screenshot_slider').owlCarousel({
-          loop: true,
-          responsiveClass: true,
-          nav: true,
-          margin: 5,
-          autoplay: true,
-          autoplayTimeout: 4000,
-          smartSpeed: 500,
-          center: true,
-          navText: ['<span class="icon-arrow-left"></span>', '<span class="icon-arrow-right"></span>'],
-          responsive: {
-              0: {
-                  items: 1,
-              },
-              600: {
-                  items: 3
-              },
-              1200: {
-                  items: 5
-              }
-          }
-      });
-
-
-      $('.testimonial-caroussel').owlCarousel({
-          loop: true,
-          responsiveClass: true,
-          nav: true,
-          autoplay: true,
-          autoplayTimeout: 4000,
-          smartSpeed: 500,
-          center: true,
-          navText: ['<span class="icon-arrow-left"></span>', '<span class="icon-arrow-right"></span>'],
-          responsive: {
-              0: {
-                  items: 1,
-              },
-              600: {
-                  items: 1
-
-              },
-              1200: {
-                  items: 1
-              }
-          }
-      });
-
-
-      $('.popup-image').magnificPopup({
-          type: 'image',
-          removalDelay: 300,
-          mainClass: 'mfp-with-zoom',
-          gallery: {
-              enabled: true
-          },
-          zoom: {
-              enabled: true,
-
-              duration: 300,
-              easing: 'ease-in-out',
-
-              opener: function (openerElement) {
-
-                  return openerElement.is('img') ? openerElement : openerElement.find('img');
-              }
-          }
-      });
-
-
-
-      $.scrollUp({
-          scrollText: '<i class="icon-arrow-up"></i>',
-          easingType: 'linear',
-          scrollSpeed: 900,
-          animation: 'fade'
-      });
-
-
-      new WOW().init({
-          mobile: true,
-      });
-
-        $('a.section-scroll[href*="#"]:not([href="#"])').on('click', function (event) {
-          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-              || location.hostname == this.hostname) {
-
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-              if (target.length) {
-                  // Only prevent default if animation is actually gonna happen
-              event.preventDefault();
-                  $('html,body').animate({
-                      scrollTop: target.offset().top
-                  }, 750);
-                  return false;
-              }
-          }
-      });
-      */
-
-
       console.log('init home')
 
     }
 
-     update( )
+     update( renderData )
     {
+
+
+      dashboardData = renderData;
+
+
+
 
     }
 

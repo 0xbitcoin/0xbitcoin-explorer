@@ -4,10 +4,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <link rel="icon" type="image/png" href="/app/assets/img/favicon.png" />
-
+        <%= require('html-loader!./templates/head.html') %>
 
   </head>
 
@@ -21,6 +18,13 @@
 
       <div id="jumbotron" class=" ">
 
+
+        <div class="jumbo-logo-container">
+
+          <img :src="jumboLogo" height=240px width=240px  ></img>
+
+            <div class="subtitle font-roboto">0xBitcoin Explorer</div>
+        </div>
 
 
         <div class="whitespace-sm"></div>
