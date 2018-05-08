@@ -31,6 +31,10 @@
 
           <div id="search-results" class="search-results">
 
+            <div class="query">{{query}}</div>
+
+            <div class="subtitle" v-if="noResults">No Results</div>
+
             <table>
               <thead>
                 <tr >

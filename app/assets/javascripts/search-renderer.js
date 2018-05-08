@@ -37,7 +37,9 @@ export default class SearchRenderer {
           resultsContainer = new Vue({
             el: '#search-results',
             data: {
-              results: resultsList
+              query: searchQuery,
+              results: resultsList,
+              noResults: (resultsList == null || resultsList.length == 0)
             }
           });
 

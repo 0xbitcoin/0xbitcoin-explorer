@@ -96,9 +96,19 @@ export default class EthHelper {
       console.log('getting search results');
 
 
-      var accountData = await self.getAccountData(web3,query)
+      if(Number.isNaN(query))
+      {
+        callback(results)
+        return;
+      }
 
-      console.log('accountData',accountData)
+      if(web3utils.isAddress(query))
+      {
+
+        var accountData = await self.getAccountData(web3,query)
+        console.log('accountData',accountData)
+
+      }
 
       var tx = await new Promise(function (fulfilled,error) {
         web3.eth.getTransaction(query,function(err,result){
@@ -116,7 +126,7 @@ export default class EthHelper {
 
       if(tx!=null)
       {
-        results.push( {type:'tx', url: tx.address, data: tx}  )
+        results.push( {type:'tx', address: tx.hash, url: "/transaction.html?hash="+tx.hash, data: tx}  )
       }
 
       callback(results)
