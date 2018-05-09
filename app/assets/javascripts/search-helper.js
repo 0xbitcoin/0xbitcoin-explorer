@@ -52,6 +52,22 @@ export default class SearchHelper {
               return false;    //<---- Add this line
 
           });
+
+          console.log('length',$('.nav-search-mobile').length)
+          $('.nav-search-mobile').off()
+          $('.nav-search-mobile').keypress(function (e) {
+              if (e.which == 13) {
+                self.submitSearch();
+                return false;    //<---- Add this line
+              }
+            });
+
+            $('.nav-search-go-mobile').off()
+            $('.nav-search-go-mobile').on('click',function (e) {
+                  self.submitSearch();
+                  return false;    //<---- Add this line
+
+              });
     }
 
 
