@@ -20,6 +20,7 @@ import AlertRenderer from './alert-renderer'
 import HomeRenderer from './home-renderer'
 import SearchRenderer from './search-renderer'
 import AccountRenderer from './account-renderer'
+import TransactionRenderer from './transaction-renderer'
 
 import Navbar from './navbar'
 
@@ -32,6 +33,7 @@ import SearchHelper from './search-helper'
 var homeRenderer= new HomeRenderer()
 var searchRenderer= new SearchRenderer()
 var accountRenderer= new AccountRenderer()
+var transactionRenderer= new TransactionRenderer()
 
 var alertRenderer = new AlertRenderer();
 var ethHelper = new EthHelper();
@@ -78,6 +80,11 @@ $(document).ready(function(){
     if($('#account').length > 0)
     {
       accountRenderer.init(ethHelper, web3);
+    }
+
+    if($('#transaction').length > 0)
+    {
+      transactionRenderer.init(ethHelper, web3);
     }
 
 

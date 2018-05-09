@@ -166,8 +166,17 @@ export default class EthHelper {
       }
 
 
+    }
 
+    async getTransactionData(web3,hash)
+    {
+      var tx = await new Promise(function (fulfilled,error) {
+        web3.eth.getTransaction(hash,function(err,result){
+          fulfilled(result)
+        });
+      });
 
+      return tx;
     }
 
 
@@ -188,7 +197,7 @@ export default class EthHelper {
 
     }
 
-    async subscribeToTransferEvent(web3, callback)
+    async getEventList(web3,type)
     {
 
       var tokenContract = this.getWeb3ContractInstance(
@@ -203,17 +212,35 @@ export default class EthHelper {
       var mint_topic = '0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d';
       var transfer_topic = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
 
-      eth.getLogs({
-         fromBlock: (current_block-10000),
-         toBlock: current_block,
-         address: '0xB6eD7644C69416d67B522e20bC294A9a9B405B31',
-         topics: [transfer_topic, null],
-       }).then((result) => {
-         console.log('result one ',result)
+      var logTypeTopic = null;
 
-       })
+      if(type == 'mint')
+      {
+        logTypeTopic = mint_topic;
+      }
 
- 
+      if(type == 'transfer')
+      {
+        logTypeTopic = transfer_topic;
+      }
+
+      var list = await new Promise(function (fulfilled,error) {
+
+        eth.getLogs({
+           fromBlock: (current_block-10000),
+           toBlock: current_block,
+           address: '0xB6eD7644C69416d67B522e20bC294A9a9B405B31',
+           topics: [logTypeTopic, null],
+         }).then((result) => {
+
+           fulfilled(result);
+         })
+
+       });
+
+
+    return list;
+
 
     }
 
