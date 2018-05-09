@@ -201,8 +201,8 @@ export default class EthHelper {
       tx.fromUrl = '/account.html?address='+tx.from
       tx.toUrl = '/account.html?address='+tx.to
 
-      tx.etherscanUrl = 'https://etherscan.io/tx/'+tx.transactionHash
- 
+      tx.etherscanUrl = 'https://etherscan.io/tx/'+tx.hash
+
       tx.txType = txType;
 
       return tx;
