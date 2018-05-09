@@ -182,14 +182,14 @@ export default class EthHelper {
       {
         txType = 'transfer';
         tx.transferAmountRaw = tx.input.substring(tx.input.length - 64)
-        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e8
+        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e7
       }
 
       if(tx.input.substring(0,10) == "0x095ea7b3")
       {
         txType = 'approve';
         tx.transferAmountRaw = tx.input.substring(tx.input.length - 64)
-        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e8
+        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e7
       }
 
       if(tx.input.substring(0,10) == "0x1801fbe5")
