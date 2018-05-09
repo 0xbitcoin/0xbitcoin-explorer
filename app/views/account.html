@@ -34,14 +34,90 @@
               </div>
 
 
-              {{ tokenBalance }}
 
-              {{ etherBalance }}
+              <div class="attributes">
+
+                <div class="attribute-row">
+                  0xBitcoin Balance:  {{ tokenBalanceFormatted }}
+                </div>
+                <div class="attribute-row">
+                  Ether Balance:  {{ etherBalanceFormatted }}
+                </div>
+
+
+                <div class="attribute-row">
+                  <a v-bind:href="etherscanUrl"> Etherscan Link </a>
+
+                </div>
+              </div>
+
 
              </div>
 
 
                    <div class="whitespace-md"></div>
+
+                   <div class="columns">
+                     <div class="column">
+
+                       <div id="mint-list" class="event-list" v-cloak>
+
+
+                         <div class="subtitle" >Recent Mints</div>
+
+                         <table>
+                           <thead>
+                             <tr >
+                               <td class="has-text-centered"> Block </td>
+                               <td class="has-text-centered"> Hash </td>
+
+                             </tr>
+                           </thead>
+                           <tbody>
+                           <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                               <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                              <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                           </tr>
+                         </tbody>
+                       </table>
+
+                        </div>
+
+                     </div>
+
+                     <div class="column">
+
+                       <div id="transfer-list" class="event-list" v-cloak>
+
+
+
+                         <div class="subtitle" >Recent Transfers</div>
+
+                         <table>
+                           <thead>
+                             <tr >
+                               <td class="has-text-centered"> Block </td>
+                               <td class="has-text-centered"> Hash </td>
+
+                             </tr>
+                           </thead>
+                           <tbody>
+                           <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                               <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                              <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                           </tr>
+                         </tbody>
+                       </table>
+
+                        </div>
+
+                     </div>
+
+                   </div>
 
 
           </div>

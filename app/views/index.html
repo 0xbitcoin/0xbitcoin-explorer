@@ -60,7 +60,7 @@
                   <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
 
                       <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
-                     <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.address}} </a> </td>
+                     <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
 
                   </tr>
                 </tbody>
@@ -90,7 +90,7 @@
                   <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
 
                       <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
-                     <td class="row-cell has-text-centered "> <a v-bind:href="item.transactionHash"> {{item.transactionHash}} </a> </td>
+                     <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
 
                   </tr>
                 </tbody>

@@ -31,9 +31,11 @@
 
           <div id="search-results" class="search-results">
 
-            <div class="query">{{query}}</div>
 
-            <div class="subtitle" v-if="noResults">No Results</div>
+            <div class="subtitle" v-if="noResults" v-cloak>No Results</div>
+
+            <div class="whitespace-md"></div>
+
 
             <table>
               <thead>

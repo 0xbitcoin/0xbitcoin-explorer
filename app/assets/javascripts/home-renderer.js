@@ -70,6 +70,7 @@ export default class HomeRenderer {
         mints = mints.slice(0,10)
                       .map(function(item){
                           item.blockNumberFormatted = item.blockNumber.toNumber();
+                          item.hashFormatted = item.transactionHash.substring(0,16);
                           item.url = "/transaction.html?hash="+ item.transactionHash;
                           return item;
                       })
@@ -88,7 +89,11 @@ export default class HomeRenderer {
         transfers = transfers.slice(0,10)
                               .map(function(item){
                                   item.blockNumberFormatted = item.blockNumber.toNumber();
+                                  item.hashFormatted = item.transactionHash.substring(0,16);
                                   item.url = "/transaction.html?hash="+ item.transactionHash;
+
+                                  //item.transferAmountRaw = item.input.substring(32)
+
                                   return item;
                               })
         var transferList = new Vue({

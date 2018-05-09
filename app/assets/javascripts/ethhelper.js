@@ -176,6 +176,36 @@ export default class EthHelper {
         });
       });
 
+      var txType = null;
+
+      if(tx.input.substring(0,10) == "0xa9059cbb")
+      {
+        txType = 'transfer';
+        tx.transferAmountRaw = tx.input.substring(tx.input.length - 64)
+        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e8
+      }
+
+      if(tx.input.substring(0,10) == "0x095ea7b3")
+      {
+        txType = 'approve';
+        tx.transferAmountRaw = tx.input.substring(tx.input.length - 64)
+        tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e8
+      }
+
+      if(tx.input.substring(0,10) == "0x1801fbe5")
+      {
+        txType = 'mint';
+        tx.mintNonce = tx.input.substring(tx.input.length - 64)
+      }
+
+      tx.fromUrl = '/account.html?address='+tx.from
+      tx.toUrl = '/account.html?address='+tx.to
+
+      tx.etherscanUrl = 'https://etherscan.io/tx/'+tx.transactionHash
+
+
+      tx.txType = txType;
+
       return tx;
     }
 
@@ -232,8 +262,12 @@ export default class EthHelper {
            address: '0xB6eD7644C69416d67B522e20bC294A9a9B405B31',
            topics: [logTypeTopic, null],
          }).then((result) => {
+           if(address == null)
+           {
+             fulfilled(result)
+           }
 
-           fulfilled(result);
+
          })
 
        });

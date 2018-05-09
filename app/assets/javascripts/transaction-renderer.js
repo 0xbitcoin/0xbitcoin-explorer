@@ -23,9 +23,6 @@ export default class TransactionRenderer {
       console.log('txHash',txHash);
 
 
-
-
-
       txData = await ethHelper.getTransactionData( web3 , txHash)
 
 
@@ -38,11 +35,6 @@ export default class TransactionRenderer {
 
             }
           });
-
-
-
-
-
 
     }
 
