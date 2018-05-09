@@ -67,7 +67,7 @@ export default class HomeRenderer {
 
         var mints = await ethHelper.getEventList(web3,'mint');
 
-        mints = mints.slice(0,10)
+        mints = mints.reverse().slice(0,10)
                       .map(function(item){
                           item.blockNumberFormatted = item.blockNumber.toNumber();
                           item.hashFormatted = item.transactionHash.substring(0,16);
@@ -86,7 +86,7 @@ export default class HomeRenderer {
 
         var transfers = await ethHelper.getEventList(web3,'transfer');
 
-        transfers = transfers.slice(0,10)
+        transfers = transfers.reverse().slice(0,10)
                               .map(function(item){
                                   item.blockNumberFormatted = item.blockNumber.toNumber();
                                   item.hashFormatted = item.transactionHash.substring(0,16);
