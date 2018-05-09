@@ -202,8 +202,7 @@ export default class EthHelper {
       tx.toUrl = '/account.html?address='+tx.to
 
       tx.etherscanUrl = 'https://etherscan.io/tx/'+tx.transactionHash
-
-
+ 
       tx.txType = txType;
 
       return tx;
@@ -264,7 +263,7 @@ export default class EthHelper {
          }).then((result) => {
 
              fulfilled(result)
-           
+
 
          })
 

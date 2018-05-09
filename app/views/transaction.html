@@ -36,13 +36,19 @@
             Type: {{ txData.txType }}
           </div>
           <div class="attribute-row">
+            Block: {{ txData.blockNumber }}
+          </div>
+          <div class="attribute-row">
             To: <a v-bind:href="txData.toUrl"> {{ txData.to }} </a>
           </div>
           <div class="attribute-row">
             From: <a v-bind:href="txData.fromUrl"> {{ txData.from }} </a>
           </div>
-          <div class="attribute-row">
-            0xBitcoin:   {{ txData.transferAmount }}
+          <div class="attribute-row" v-if="txData.transferAmount">
+            0xBTC Transferred:   {{ txData.transferAmount }}
+          </div>
+          <div class="attribute-row" v-if="txData.mintNonce">
+            Mint Nonce:   {{ txData.mintNonce }}
           </div>
           <div class="attribute-row">
             Raw Input: {{ txData.input }}
