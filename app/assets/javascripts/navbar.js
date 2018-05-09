@@ -27,7 +27,6 @@ export default class Navbar {
               $el.classList.toggle('is-active');
               $target.classList.toggle('is-active');
 
-             searchHelper.refreshSearchHandlers();
 
             });
           });
@@ -67,8 +66,7 @@ export default class Navbar {
                       $(dropdownContent).hide();
                       $(dropdownContent).fadeIn(100);
                   }
-
-                   searchHelper.refreshSearchHandlers();
+ 
 
               });
 

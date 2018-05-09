@@ -35,7 +35,13 @@ export default class SearchHelper {
 
             });
 
-        this.refreshSearchHandlers()
+            $(document.body).on('keypress', '.nav-search',function (e) {
+
+                  if (e.which == 13) {
+                    self.submitSearch(this);
+                    return false;    //<---- Add this line
+                  }
+              });
 
 
 
@@ -45,16 +51,6 @@ export default class SearchHelper {
     {
       console.log('refresh')
       var self = this;
-      $('.nav-search').off()
-      $('.nav-search').keypress(function (e) {
-          if (e.which == 13) {
-            self.submitSearch();
-            return false;    //<---- Add this line
-          }
-        });
-
-
-
  
 
     }
