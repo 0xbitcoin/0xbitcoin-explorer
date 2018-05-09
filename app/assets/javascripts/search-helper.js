@@ -28,6 +28,13 @@ export default class SearchHelper {
 
           console.log('init search');
 
+
+          $(document.body).on('click', '.nav-search-go',function (e) {
+                self.submitSearch(this);
+                return false;    //<---- Add this line
+
+            });
+
         this.refreshSearchHandlers()
 
 
@@ -46,34 +53,19 @@ export default class SearchHelper {
           }
         });
 
-        $('.nav-search-go').off()
-        $('.nav-search-go').click(function (e) {
-              self.submitSearch();
-              return false;    //<---- Add this line
 
-          });
 
-          console.log('length',$('.nav-search-mobile').length)
-          $('.nav-search-mobile').off()
-          $('.nav-search-mobile').keypress(function (e) {
-              if (e.which == 13) {
-                self.submitSearch();
-                return false;    //<---- Add this line
-              }
-            });
+ 
 
-            $('.nav-search-go-mobile').off()
-            $('.nav-search-go-mobile').on('click',function (e) {
-                  self.submitSearch();
-                  return false;    //<---- Add this line
-
-              });
     }
 
 
-    submitSearch()
+    submitSearch(element)
     {
-      var query = $('.nav-search').val();
+      console.log('submitSearch')
+      var inputElement = $(element).closest('.nav-search-container').find('.nav-search').first()
+      console.log(inputElement)
+      var query = $(inputElement).val();
 
       if(query && query.length > 0)
       {
