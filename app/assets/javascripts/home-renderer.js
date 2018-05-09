@@ -34,6 +34,12 @@ export default class HomeRenderer {
 
 
 
+      ethHelper.subscribeToTransferEvent(web3,function(result){
+        console.log('rresult',result)
+      })
+
+
+
 
         ethHelper.connectToContract( web3 , function(renderData){
 

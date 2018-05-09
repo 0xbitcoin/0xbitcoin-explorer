@@ -1,6 +1,10 @@
 var INFURA_ROPSTEN_URL = 'https://ropsten.infura.io/gmXEVo5luMPUGPqg6mhy';
 var INFURA_MAINNET_URL = 'https://mainnet.infura.io/gmXEVo5luMPUGPqg6mhy';
 
+
+const Eth = require('ethjs');
+const eth = new Eth(new Eth.HttpProvider(INFURA_MAINNET_URL));
+
 var deployedContractInfo = require('../contracts/DeployedContractInfo.json');
 var _0xBitcoinContract = require('../contracts/_0xBitcoinToken.json');
 
@@ -182,6 +186,49 @@ export default class EthHelper {
        console.log('hashrate is ',hashrate )
      return gigHashes.toFixed(2).toString() + " GH/s"
 
+    }
+
+    async subscribeToTransferEvent(web3, callback)
+    {
+
+      var tokenContract = this.getWeb3ContractInstance(
+        web3,
+        this.getContractAddress(),
+        this.getContractABI()
+      )
+
+      var current_block = await this.getCurrentEthBlockNumber(web3);
+
+
+      var mint_topic = '0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d';
+      var transfer_topic = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+
+      eth.getLogs({
+         fromBlock: (current_block-10000),
+         toBlock: current_block,
+         address: '0xB6eD7644C69416d67B522e20bC294A9a9B405B31',
+         topics: [transfer_topic, null],
+       }).then((result) => {
+         console.log('result one ',result)
+
+       })
+
+ 
+
+    }
+
+    async getCurrentEthBlockNumber(web3)
+    {
+      var ethBlockNumber = await new Promise(function (fulfilled,error) {
+            web3.eth.getBlockNumber(function(err, result)
+          {
+            if(err){error(err);return}
+            console.log('eth block number ', result )
+            fulfilled(result);
+            return;
+          });
+       });
+       return ethBlockNumber;
     }
 
     getWeb3ContractInstance(web3, contract_address, contract_abi )

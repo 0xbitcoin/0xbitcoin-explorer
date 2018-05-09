@@ -26,7 +26,7 @@ export default class SearchRenderer {
       console.log('searchQuery',searchQuery);
 
 
-
+      
 
 
         ethHelper.getSearchResults( web3 , searchQuery , function(results){
