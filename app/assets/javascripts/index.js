@@ -88,10 +88,10 @@ $(document).ready(function(){
     }
 
 
-
-    navbar.init();
-
     searchHelper.init();
+
+    navbar.init(searchHelper);
+
 
 
 

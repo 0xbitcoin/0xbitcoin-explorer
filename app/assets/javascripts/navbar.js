@@ -4,9 +4,9 @@ const $ = require('jquery');
 export default class Navbar {
 
 
-      init( )
+      init( searchHelper )
       {
-
+        var self = this;
 
         // Get all "navbar-burger" elements
         var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -26,6 +26,8 @@ export default class Navbar {
               // Toggle the class on both the "navbar-burger" and the "navbar-menu"
               $el.classList.toggle('is-active');
               $target.classList.toggle('is-active');
+
+             searchHelper.refreshSearchHandlers();
 
             });
           });
@@ -65,6 +67,8 @@ export default class Navbar {
                       $(dropdownContent).hide();
                       $(dropdownContent).fadeIn(100);
                   }
+
+                   searchHelper.refreshSearchHandlers();
 
               });
 

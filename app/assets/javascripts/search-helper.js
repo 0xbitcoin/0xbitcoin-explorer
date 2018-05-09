@@ -24,9 +24,21 @@ export default class SearchHelper {
     var self = this;
 
 
-      console.log('init search');
 
 
+          console.log('init search');
+
+        this.refreshSearchHandlers()
+
+
+
+    }
+
+    refreshSearchHandlers()
+    {
+      console.log('refresh')
+      var self = this;
+      $('.nav-search').off()
       $('.nav-search').keypress(function (e) {
           if (e.which == 13) {
             self.submitSearch();
@@ -34,16 +46,12 @@ export default class SearchHelper {
           }
         });
 
-
+        $('.nav-search-go').off()
         $('.nav-search-go').click(function (e) {
               self.submitSearch();
               return false;    //<---- Add this line
 
           });
-
-
-
-
     }
 
 
