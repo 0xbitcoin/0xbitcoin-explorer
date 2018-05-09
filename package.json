@@ -8,7 +8,8 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "dev": "webpack-dev-server "
+    "dev": "webpack-dev-server ",
+    "express": "node express-dev.js"
   },
   "keywords": [
     "0xbitcoin",

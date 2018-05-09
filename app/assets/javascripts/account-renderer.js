@@ -40,8 +40,8 @@ export default class AccountRenderer {
               address: accountData.address,
               tokenBalance: accountData.tokenBalance,
               etherBalance: accountData.etherBalance,
-              tokenBalanceFormatted: accountData.tokenBalance / 10e8,
-              etherBalanceFormatted: accountData.etherBalance /10e18,
+              tokenBalanceFormatted: accountData.tokenBalance / 10e7,
+              etherBalanceFormatted: accountData.etherBalance / 10e17,
               etherscanUrl: 'https://etherscan.io/address/'+accountData.address
 
             }
