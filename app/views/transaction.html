@@ -44,6 +44,9 @@
           <div class="attribute-row">
             From: <a v-bind:href="txData.fromUrl"> {{ txData.from }} </a>
           </div>
+          <div class="attribute-row" v-if="txData.transferTo">
+            Transfer To: <a v-bind:href="txData.transferToUrl"> {{ txData.transferTo }} </a>
+          </div>
           <div class="attribute-row" v-if="txData.transferAmount">
             0xBTC Transferred:   {{ txData.transferAmount }}
           </div>

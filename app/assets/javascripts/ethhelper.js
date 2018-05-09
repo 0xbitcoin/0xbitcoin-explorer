@@ -183,6 +183,10 @@ export default class EthHelper {
         txType = 'transfer';
         tx.transferAmountRaw = tx.input.substring(tx.input.length - 64)
         tx.transferAmount = parseInt(tx.transferAmountRaw,16) / 10e7
+
+        tx.transferTo = '0x'+tx.input.substring(34,74);
+        tx.transferToUrl = '/account.html?address='+tx.transferTo
+
       }
 
       if(tx.input.substring(0,10) == "0x095ea7b3")
